@@ -1,0 +1,11 @@
+[Unit]
+Description=Weekly Claude Code state pruning
+
+[Timer]
+# Sundays at 05:00 local (runs an hour after snapshot — order matters: snapshot first, then prune).
+OnCalendar=Sun *-*-* 05:00:00
+Persistent=true
+RandomizedDelaySec=900
+
+[Install]
+WantedBy=timers.target

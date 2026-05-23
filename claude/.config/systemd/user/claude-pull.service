@@ -1,0 +1,16 @@
+[Unit]
+Description=Pull and apply latest agent-treasures snapshot from origin
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+# systemd timers start with a clean env; source ~/.envrc so the script can find
+# helper binaries and credentials it expects in PATH.
+ExecStart=/bin/bash -lc 'source $HOME/.envrc && $HOME/.claude/scripts/pull-recipe.sh'
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+
+[Install]
+WantedBy=default.target

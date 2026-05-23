@@ -1,0 +1,12 @@
+[Unit]
+Description=Hourly pull of agent-treasures snapshot
+
+[Timer]
+# Hourly at minute 30 — staggered by ~30 min from claude-snapshot.timer
+# so a push from one machine has time to reach GitHub before the others pull.
+OnCalendar=*-*-* *:30:00
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

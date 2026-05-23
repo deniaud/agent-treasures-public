@@ -1,0 +1,16 @@
+[Unit]
+Description=Rebuild Claude Code recipe tarball and push to private snapshots repo
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+# Source .envrc indirectly via direnv-loaded shell env. systemd timers run
+# under a clean environment, so we explicitly source ~/.envrc here.
+ExecStart=/bin/bash -lc 'source $HOME/.envrc && $HOME/.claude/scripts/snapshot-recipe.sh'
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+
+[Install]
+WantedBy=default.target

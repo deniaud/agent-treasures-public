@@ -1,0 +1,11 @@
+[Unit]
+Description=Prune ~/.claude runtime state (shell-snapshots, file-history, paste-cache, history.jsonl tail)
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -lc '$HOME/.claude/scripts/prune-logs.sh'
+Nice=15
+IOSchedulingClass=idle
+
+[Install]
+WantedBy=default.target

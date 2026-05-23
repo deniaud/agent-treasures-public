@@ -1,0 +1,9 @@
+# Pinned MCP package versions. Cross-reference with package.json + package-lock.json.
+# Bump via /mcp-pin slash command (resolves npm view + regenerates lockfile).
+
+context7-mcp       = 2.2.5      # @upstash/context7-mcp
+21st-dev-magic     = 0.1.0      # @21st-dev/magic
+playwright-mcp     = 0.0.75     # @playwright/mcp
+
+# Integrity hashes for these versions live in package-lock.json (npm SHA-512).
+# Verify on restore: cd ~/.claude/mcp && npm ci

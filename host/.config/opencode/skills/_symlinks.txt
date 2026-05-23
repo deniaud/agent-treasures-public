@@ -1,0 +1,7 @@
+handoff -> handoff
+init-extended -> init-extended
+qa -> qa
+roast -> roast
+session-retrospective -> session-retrospective
+write-a-skill -> write-a-skill
+zoom-out -> zoom-out

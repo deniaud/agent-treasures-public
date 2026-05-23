@@ -1,0 +1,12 @@
+[Unit]
+Description=Hourly Claude Code recipe snapshot
+
+[Timer]
+# Hourly at the top of the hour. Runs missed schedules after reboot.
+# Paired with claude-pull.timer at :30 so push has ~30 min to land.
+OnCalendar=*-*-* *:00:00
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

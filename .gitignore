@@ -1,0 +1,53 @@
+# Plaintext secrets — never commit (real values live in secrets/secrets.env.gpg)
+host/.envrc
+claude/.claude/.credentials.json
+host/.config/pip/pip.conf
+host/.config/environment.d/10-github-token.conf
+
+# Per-host runtime state (mirrored via `git ls-files` on ~/.claude — these are belts-and-braces)
+claude/.claude/cache/
+claude/.claude/channels/
+claude/.claude/daemon/
+claude/.claude/daemon.log
+claude/.claude/file-history/
+claude/.claude/history.jsonl
+claude/.claude/ide/
+claude/.claude/jobs/
+claude/.claude/paste-cache/
+claude/.claude/projects/
+claude/.claude/session-env/
+claude/.claude/sessions/
+claude/.claude/shell-snapshots/
+claude/.claude/tasks/
+claude/.claude/telemetry/
+claude/.claude/downloads/
+claude/.claude/.last-cleanup
+claude/.claude/cleanup.log
+claude/.claude/mcp-needs-auth-cache.json
+claude/.claude/stats-cache.json
+claude/.claude/backups/
+claude/.claude/plugins/cache/
+claude/.claude/plugins/data/
+claude/.claude/plugins/install-counts-cache.json
+claude/.claude/plugins/marketplaces/
+claude/.claude/ccline/ccline
+claude/.claude/ccline/.api_usage_cache.json
+claude/.claude/mcp/node_modules/
+claude/.cc-switch/cc-switch.db
+claude/.cc-switch/logs/
+
+# host bucket — sensitive auth files mirrored via secrets/files/*.gpg
+host/.codex/auth.json
+host/.local/share/opencode/auth.json
+# Code state we don't track (extensions tree, workspace storage, history)
+host/.config/Code/User/globalStorage/
+host/.config/Code/User/workspaceStorage/
+host/.config/Code/User/History/
+
+# Claude Code worktrees + per-session scratch (created by EnterWorktree)
+/.claude/
+
+# OS / editor
+.DS_Store
+*.swp
+*~
