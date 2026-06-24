@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Claude Trace
+Comment=Просмотр трасс сессий Claude Code (claude-code-trace)
+Exec=/home/deniaud/.local/bin/claude-trace
+Icon=utilities-system-monitor
+Terminal=false
+Categories=Development;Utility;
+Keywords=claude;trace;ccline;sessions;jsonl;
+StartupNotify=true

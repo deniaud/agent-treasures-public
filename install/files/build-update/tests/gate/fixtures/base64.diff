@@ -1,0 +1,5 @@
+diff --git a/src/y.ts b/src/y.ts
+--- a/src/y.ts
++++ b/src/y.ts
+@@ -1 +1,2 @@
++const p = Buffer.from("ZWNobyBoaQ==", "base64").toString();

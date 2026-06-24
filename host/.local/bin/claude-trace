@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+# claude-trace — поднимает контейнер claude-code-trace (если не запущен)
+# и открывает веб-консоль как приложение.
+#
+# Веб-консоль: http://localhost:1421
+# Данные сессий монтируются read-only из ~/.claude.
+set -euo pipefail
+
+NAME="cctrace"
+IMAGE="claude-code-trace:latest"
+PORT="1421"
+URL="http://localhost:${PORT}"
+
+log() { printf '\033[2mclaude-trace:\033[0m %s\n' "$*" >&2; }
+
+# 1. Убедиться, что контейнер запущен
+if docker ps -q -f "name=^${NAME}$" | grep -q .; then
+  log "контейнер уже запущен"
+elif docker ps -aq -f "name=^${NAME}$" | grep -q .; then
+  log "запускаю существующий контейнер…"
+  docker start "${NAME}" >/dev/null
+else
+  log "создаю и запускаю контейнер…"
+  docker run -d --name "${NAME}" \
+    -p "${PORT}:${PORT}" \
+    -v "${HOME}/.claude:/home/app/.claude:ro" \
+    "${IMAGE}" >/dev/null
+fi
+
+# 2. Дождаться, пока веб-консоль ответит (до ~15 c)
+log "жду готовности ${URL} …"
+for _ in $(seq 1 30); do
+  if curl -fsS -o /dev/null "${URL}" 2>/dev/null; then
+    break
+  fi
+  sleep 0.5
+done
+
+# 3. Открыть как приложение (chromeless-окно), с откатами
+log "открываю ${URL}"
+if command -v google-chrome >/dev/null 2>&1; then
+  setsid google-chrome --app="${URL}" >/dev/null 2>&1 < /dev/null &
+elif command -v chromium >/dev/null 2>&1; then
+  setsid chromium --app="${URL}" >/dev/null 2>&1 < /dev/null &
+else
+  setsid xdg-open "${URL}" >/dev/null 2>&1 < /dev/null &
+fi
+
+log "готово → ${URL}"

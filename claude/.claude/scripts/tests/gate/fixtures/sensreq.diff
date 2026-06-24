@@ -1,0 +1,5 @@
+diff --git a/src/n.ts b/src/n.ts
+--- a/src/n.ts
++++ b/src/n.ts
+@@ -1 +1,2 @@
++const net = require('net');

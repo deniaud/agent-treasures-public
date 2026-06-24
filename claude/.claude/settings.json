@@ -1,0 +1,140 @@
+{
+  "cleanupPeriodDays": 7,
+  "env": {
+    "DISABLE_AUTOUPDATER": "1",
+    "ENABLE_TOOL_SEARCH": "auto:5",
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "80",
+    "DISABLE_TELEMETRY": "1",
+    "DISABLE_ERROR_REPORTING": "1",
+    "BASH_DEFAULT_TIMEOUT_MS": "180000",
+    "CLAUDE_STREAM_IDLE_TIMEOUT_MS": "30000",
+    "MAX_MCP_OUTPUT_TOKENS": "50000",
+    "CLAUDE_CODE_DISABLE_BACKGROUND_TASKS": "1",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "permissions": {
+    "allow": [
+      "Bash(tsh ssh:*)",
+      "Bash(~/.claude/scripts/rnd:*)",
+      "Bash(/home/deniaud/.claude/scripts/rnd:*)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(rm -r *)",
+      "Bash(rm -f *)",
+      "Bash(rm -fr *)",
+      "Bash(rmdir *)",
+      "Bash(find * -delete *)",
+      "Bash(find * -exec rm *)",
+      "Bash(sudo *)",
+      "Bash(chmod 777 *)",
+      "Bash(chmod a+rwx *)",
+      "Bash(mkfs *)",
+      "Bash(dd *)",
+      "Bash(shutdown *)",
+      "Bash(git push --force *)",
+      "Bash(git push --force-with-lease *)",
+      "Bash(git reset --hard *)",
+      "Bash(git clean *)",
+      "Bash(git branch -D *)",
+      "Bash(git stash drop *)"
+    ],
+    "defaultMode": "auto"
+  },
+  "enableAllProjectMcpServers": false,
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Read|Edit|Write|NotebookEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/guard-secrets.sh",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/ship-gate.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/enhance-prompt.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 $HOME/.claude/hooks/delegation-nudge.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 $HOME/.claude/hooks/skills-digest.py",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/ccline/ccline"
+  },
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": false,
+    "skill-creator@claude-plugins-official": false,
+    "telegram@claude-plugins-official": false,
+    "playwright@claude-plugins-official": true
+  },
+  "language": "russian",
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true,
+    "filesystem": {
+      "allowWrite": [
+      ]
+    },
+    "allowedDomains": [
+    ]
+  },
+  "spinnerTipsEnabled": false,
+  "effortLevel": "high",
+  "autoUpdatesChannel": "latest",
+  "plansDirectory": "./docs/plans",
+  "voice": {
+    "enabled": true,
+    "mode": "tap"
+  },
+  "preferredNotifChannel": "terminal_bell",
+  "teammateMode": "tmux",
+  "skipAutoPermissionPrompt": true
+}

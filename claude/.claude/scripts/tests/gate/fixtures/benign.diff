@@ -1,0 +1,9 @@
+diff --git a/src/lib/patch.ts b/src/lib/patch.ts
+index 1111111..2222222 100644
+--- a/src/lib/patch.ts
++++ b/src/lib/patch.ts
+@@ -1,3 +1,4 @@
+ export function applyPatch(src: string): string {
++  // tidy whitespace before anchoring
+   return src.replace(/\r\n/g, "\n");
+ }

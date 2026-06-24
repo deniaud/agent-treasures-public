@@ -1,0 +1,5 @@
+diff --git a/src/p.ts b/src/p.ts
+--- a/src/p.ts
++++ b/src/p.ts
+@@ -1 +1,2 @@
++const s = "hi​there";

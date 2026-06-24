@@ -1,0 +1,27 @@
+# Pinned versions for claude-treasures restore.
+# Regenerated automatically by ~/.claude/scripts/snapshot-recipe.sh.
+
+snapshot_built_at      = 2026-06-24T22:00:42Z
+snapshot_source_cc_ver = 2.1.167 (Claude Code)
+
+claude_code            = 2.1.167
+
+tweakcc_fixed_repo     = https://github.com/skrabe/tweakcc-fixed
+tweakcc_fixed_ref      = 59c943beac0c17389dc5dcf5eeafe170c34c3178
+
+lobotomized_repo       = https://github.com/skrabe/lobotomized-claude-code
+lobotomized_ref        = b5948b30cdba5f1900322344e2611fc8ef8ecfae
+
+ccometixline_repo      = https://github.com/Haleclipse/CCometixLine
+ccometixline_ref       = a73b166557662b2e79b83ea005fb297003748fb0
+ccometixline_sha256    = 96f26722fb9a07bc7e77c1678289fa55df3d0250e2c89519be7aa2a64e4a19b6
+
+cc_switch_repo         = https://github.com/farion1231/cc-switch
+cc_switch_version      = 3.14.1
+
+cc_prompt_rewriter_repo = https://github.com/deniaud/cc-prompt-rewriter
+cc_prompt_rewriter_ref  = 8617c53aeb0591dd714f352a9820d53a5b3e60ab
+
+cc_quote_repo          = https://github.com/deniaud/cc-quote
+cc_quote_ref           = 32f266f265c7c8278b82ba90a519f6ab9af7231e
+

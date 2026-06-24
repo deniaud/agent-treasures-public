@@ -1,0 +1,76 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": true,
+  "mcp": {},
+  "permission": {
+    "bash": {
+      "*": "allow",
+      "chmod 777 *": "deny",
+      "chmod a+rwx *": "deny",
+      "dd *": "deny",
+      "find * -delete *": "deny",
+      "find * -exec rm *": "deny",
+      "git branch -D *": "deny",
+      "git clean *": "deny",
+      "git push --force *": "deny",
+      "git push --force-with-lease *": "deny",
+      "git reset --hard *": "deny",
+      "git stash drop *": "deny",
+      "mkfs *": "deny",
+      "rm -f *": "deny",
+      "rm -fr *": "deny",
+      "rm -r *": "deny",
+      "rm -rf *": "deny",
+      "rmdir *": "deny",
+      "shutdown *": "deny",
+      "sudo *": "deny"
+    },
+    "edit": "allow",
+    "glob": "allow",
+    "grep": "allow",
+    "read": "allow",
+    "webfetch": "allow"
+  },
+  "plugin": [
+    "@mohak34/opencode-notifier@latest",
+    "oh-my-openagent@latest"
+  ],
+  "provider": {
+    "NVIDIA": {
+      "models": {
+        "deepseek-ai/deepseek-v3.2": {
+          "name": "Deepseek v3.2"
+        },
+        "moonshotai/kimi-k2-instruct": {
+          "name": "Kimi-K2-instruct"
+        },
+        "z-ai/glm4.7": {
+          "name": "GLM 4.7"
+        }
+      },
+      "name": "NVIDIA",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "apiKey": "{env:NVIDIA_API_KEY}",
+        "baseURL": "https://integrate.api.nvidia.com/v1"
+      }
+    },
+    "myprovider": {
+      "models": {
+        "deepseek-v4-pro-260425": {
+          "name": "DeepSeek-V4-pro"
+        },
+        "glm-5.1": {
+          "name": "glm-5.1"
+        }
+      },
+      "name": "byteplus",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "apiKey": "{env:BYTEPLUS_API_KEY}",
+        "baseURL": "https://ark.ap-southeast.bytepluses.com/api/coding/v3"
+      }
+    }
+  },
+  "share": "manual"
+}

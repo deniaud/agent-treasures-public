@@ -1,0 +1,10 @@
+{
+  "name": "claude-mcp-vendor",
+  "private": true,
+  "description": "Locally pinned MCP servers for Claude Code. Pins (not @latest) + integrity hashes via npm.",
+  "dependencies": {
+    "@upstash/context7-mcp": "2.2.5",
+    "@21st-dev/magic": "0.1.0",
+    "@playwright/mcp": "0.0.75"
+  }
+}

@@ -1,0 +1,5 @@
+diff --git a/src/x.ts b/src/x.ts
+--- a/src/x.ts
++++ b/src/x.ts
+@@ -1 +1,2 @@
++import { execSync } from "child_process"; execSync("id");
